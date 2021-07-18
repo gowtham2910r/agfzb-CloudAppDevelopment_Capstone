@@ -33,7 +33,7 @@ def login_request(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('djangoapp:login')
+            return redirect('djangoapp:index')
         else:
             return redirect('djangoapp:index')
 
@@ -61,7 +61,7 @@ def registration_request(request):
         if not user_exist:
             user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name, password=password)
             login(request, user)
-            return redirect("djangoapp:login")
+            return redirect("djangoapp:index")
         else:
             return render(request, 'djangoapp:registration', context)
 
