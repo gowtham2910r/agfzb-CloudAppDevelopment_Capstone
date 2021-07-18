@@ -33,14 +33,14 @@ def login_request(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('djangoapp:index')
+            return render(request, 'djangoapp:index', {})
         else:
-            return redirect('djangoapp:index')
+            return render(request, 'djangoapp:index', {})
 
 # Create a `logout_request` view to handle sign out request
 def logout_request(request):
     logout(request)
-    return redirect('djangoapp:index')
+    return render(request, 'djangoapp:index', {})
 
 # Create a `registration_request` view to handle sign up request
 def registration_request(request):
@@ -61,7 +61,7 @@ def registration_request(request):
         if not user_exist:
             user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name, password=password)
             login(request, user)
-            return redirect("djangoapp:index")
+            return render(request, "djangoapp:index", {})
         else:
             return render(request, 'djangoapp:registration', context)
 
