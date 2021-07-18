@@ -18,9 +18,8 @@ logger = logging.getLogger(__name__)
 
 
 # Create an `about` view to render a static about page
-# def about(request):
-# ...
-
+def about(request):
+    return HttpResponseRedirect(reverse(viewname='djangoapp:about'))
 
 # Create a `contact` view to return a static contact page
 #def contact(request):
