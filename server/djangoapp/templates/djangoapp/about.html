@@ -22,7 +22,7 @@
             <label>{{ user.first_name }}({{ user.username }})<label>
             <a class="btn btn-link" href="{% url 'djangoapp:logout' %}">Logout</a>
             {% else %}   
-            <form class='form-inline' action="{% url 'djangoapp:login' %}" method="post">
+            <form class='form-inline' action="{% url 'djangoapp:login' %}" method="post">{% csrf_token %}
                 <input type="text" class="form-control" name="username" placeholder="Username"/>
                 <input type="password" class="form-control" name="password" placeholder="Password"/>
                 <button class="btn btn-primary" type="submit" name="submit">Sign In</button>
