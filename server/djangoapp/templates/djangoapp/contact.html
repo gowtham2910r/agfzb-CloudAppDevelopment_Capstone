@@ -16,10 +16,10 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Dealership Review</a>
             </div>
-            <a class = 'nav-link' href='./about'>Home</a>
-            <a class = 'nav-link' href='./contact'>Contact Us</a>
+            <a class = 'nav-link' href="{% url 'djangoapp:about' %}">Home</a>
+            <a class = 'nav-link' href="{% url 'djangoapp:contact' %}">Contact Us</a>
             {% if user.is_authenticated %}
-            <a class="btn btn-link" href="#">{{ user.first_name }}({{ user.username }})</a>
+            <label>{{ user.first_name }}({{ user.username }})<label>
             <a class="btn btn-link" href="{% url 'djangoapp:logout' %}">Logout</a>
             {% else %}   
             <form class='form-inline' action="{% url 'djangoapp:login' %}" method="post">
